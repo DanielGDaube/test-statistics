@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import java.util.Arrays;
+
 public class TestStatistics {
     public static void main(String[] args) {
         // Creates an array of test scores
@@ -25,5 +27,9 @@ public class TestStatistics {
         System.out.println("The highest score is " + highScore);
         System.out.println("The lowest score is " + lowScore);
 
+        // Sorts the array from lowest to highest then finds and prints the median
+        Arrays.sort(testScores);
+        double median = (double) (testScores[4] + testScores[5]) / 2;
+        System.out.println("The median is " + median);
     }
 }
