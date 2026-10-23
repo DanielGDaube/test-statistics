@@ -10,6 +10,7 @@ public class TestStatistics {
         int total = 0;
         int highScore = testScores[0];
         int lowScore = testScores[0];
+        double median;
 
         // Loops through the array find the total, high score, and low score
         for (int testScore : testScores) {
@@ -21,15 +22,23 @@ public class TestStatistics {
             }
 
         }
-        // Calculates the averag then prints average, high score, and low score
+        // Sorts the array then calculates the median depending on array length
+        Arrays.sort(testScores);
+        if (testScores.length %2 != 0){
+            median = testScores[(testScores.length/2)];
+        }
+        else {
+            int middle1 = testScores.length/2 - 1;
+            int middle2 = testScores.length/2;
+            median = (double) (testScores[middle1] + testScores[middle2]) /2;
+        }
+
+        // Calculates the average then prints average, median, high score, and low score
         double average = (double) total / testScores.length;
         System.out.println("The average is " + average);
         System.out.println("The highest score is " + highScore);
         System.out.println("The lowest score is " + lowScore);
-
-        // Sorts the array from lowest to highest then finds and prints the median
-        Arrays.sort(testScores);
-        double median = (double) (testScores[4] + testScores[5]) / 2;
         System.out.println("The median is " + median);
     }
+
 }
